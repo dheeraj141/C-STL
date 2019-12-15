@@ -14,4 +14,9 @@
 #include <list>
 using namespace std;
 
+
+
+
+void list_operations();
+void print_elements_using_iterators( list<char> &test_list);
 #endif /* lists_operation_hpp */

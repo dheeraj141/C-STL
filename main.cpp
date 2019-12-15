@@ -7,13 +7,16 @@
 //
 
 #include <iostream>
-#include <vector>       // header class for vector
+#include <vector>
+#include "lists_operation.hpp"
+#include "vectors.hpp"
 using namespace std;
 
 int main(int argc, const char * argv[])
 {
     
-   
+    //list_operations();
+    vector_operations();
     
     
     

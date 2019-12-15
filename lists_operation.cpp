@@ -23,6 +23,46 @@ void print_elements( const T &l)
         
 }
 
+
+
+void print_elements_using_iterators( list<char> &test_list)
+{
+    // using iterators
+       // begin refers to the first element and end refers to the element past the last element
+       // standard for loop for accessing the list elements
+       
+       list<char>::const_iterator it;      // const_iterator only for reading the values can't modify
+       for( it = test_list.begin(); it!= test_list.end(); ++it)
+           cout<<*it<<" ";
+       cout<<endl;
+       
+       
+       // every container provides two types of iterators
+    
+       list<char>::iterator it1;      // iterator only for read/ write and can modify the values of the contents
+       for( it1 = test_list.begin(); it1!= test_list.end(); ++it1)
+       {
+           *it1 = toupper(*it1);       // modify the values
+           cout<<*it1<<" ";
+           
+       }
+           
+       cout<<endl;
+    
+    // using auto in case of the iterator definition here the type of iterator is not const just iterator which means you can
+    // modify the values
+    
+    for( auto pos = test_list.begin(); pos!= test_list.end(); ++pos)
+        cout<<*pos<<" ";
+    cout<<endl;
+    
+    // const iterator with auto
+    //cbegin returns a constant iterators so can be used with auto
+    for( auto pos = test_list.cbegin(); pos!= test_list.cend(); ++pos)
+        cout<<*pos<<" ";
+    cout<<endl;
+}
+
 void list_operations()
 {
    
@@ -38,7 +78,7 @@ void list_operations()
     // No random access of the elements provided so can't use the subscript operator []
     // Accessing the element is linear time complexity
     
-    // range based loop used for displaying the element available from C++11
+    // range based loop used for displaying the element, available from C++11
     // auto variable automatically deduce the type
     
     for( auto elem: test_list)
@@ -60,7 +100,7 @@ void list_operations()
     
     
     if( test_list.empty())          // .empty() gives whether the list contains element or not
-        cout<<"non empty list"<<endl;
+        cout<<" empty list"<<endl;
     
     // Another method to print
     
@@ -70,6 +110,10 @@ void list_operations()
         test_list.pop_front();              // removes the first element
     }
     
+    print_elements_using_iterators(test_list);
+   
+    
+    // using auto in case of definition
     
     
     // Forward List which are single linked list which means only next pointer provided
@@ -81,9 +125,7 @@ void list_operations()
         cout<<elem<<" ";
     cout<<endl;
     
-    
-    
-    
-    
-    
 }
+// Displays the use of iterators
+
+

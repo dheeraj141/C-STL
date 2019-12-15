@@ -24,7 +24,7 @@ using namespace std;
 // unordered map where duplicates are not allowed
 // unordered multimap duplicates are allowed 
 
-void map_operation()
+void multimap_defination()
 {
     // mutlimap duplicate values are allowed here key in the int value and string is the string value
     
@@ -38,32 +38,63 @@ void map_operation()
              {1,"is"},
              {3,"multimap"} };
     
+    
+    // iteration using range based loops
     for( const auto &elem : coll)
         cout<<elem.first<< " "<<elem.second<<endl;
     cout<<endl;
     
+    //iteration using iterators
+    // useful when we want to store the position of the element of interest and range based loops interally use iterators
     
     
     
-    //unordered maps are implemented as an array of linked list and the order is not defined
-    // accessing the elements is much faster ( faster than the associative containers) and almost provide constant complexity of accessing an element
-    
-    // same thing can be done for unordered maps
-    
-    multimap<string, double> test = { { "tim", 5.5},{ "rock", 4.5},{ " Kim", 6.7}};
-    
-    for( auto &elem: test)
-        elem.second+=2;                 // here reference is used as we are changing values
-    
-    // if we don't want to use auto
-    for( pair< const string, double> &elem: test)   //  as you can see the internal type of the map elements is pair <const string, double> the key is constant
-        elem.second-=2;                 // auto makes the code compact
     
     
+   
     
-    // printing the elements
-    for( const auto &elem : test)
-        cout<<elem.first<< " "<<elem.second<<endl;
-    cout<<endl;
+   
     
 }
+
+
+void unordered_multimap()
+{
+    //unordered maps are implemented as an array of linked list and the order is not defined
+    // accessing the elements is much faster ( faster than the associative containers)
+    //and almost provide constant complexity of accessing an element
+
+       
+       multimap<string, double> test = { { "tim", 5.5},{ "rock", 4.5},{ " Kim", 6.7}};
+       
+       for( auto &elem: test)
+           elem.second+=2;                 // here reference is used as we are changing values
+       
+       // if we don't want to use auto
+       for( pair< const string, double> &elem: test)   //  as you can see the internal type of the map elements is pair <const string, double> the key is constant
+           elem.second-=2;                 // auto makes the code compact
+       
+       
+       
+       // printing the elements
+       for( const auto &elem : test)
+           cout<<elem.first<< " "<<elem.second<<endl;
+       cout<<endl;
+    
+}
+
+void unordered_map()
+{
+    unordered_map<string, int> test ={{ "Rock", 5}, {"Paul", 6}};
+    
+    // Accessing the map elements as arrays as the map elements are identified by thier key elements
+    
+    test["Rock"]+=3;        // the value is increased from 5 to 8
+    test[ "Paul"] -=3;      // same thing
+    
+    test["Dan"] = 7;        // new element is inserted in the map
+    
+    test[" Mand"];          // in this the element with Mand key is created and the value is initialized to the default value of the type specified in the declaration
+    
+}
+

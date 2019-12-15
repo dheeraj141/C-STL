@@ -14,4 +14,8 @@
 #include <iostream>
 using namespace std;
 
+
+void vector_methods( vector<int> &A);
+void vector_operations();
+
 #endif /* vectors_hpp */
